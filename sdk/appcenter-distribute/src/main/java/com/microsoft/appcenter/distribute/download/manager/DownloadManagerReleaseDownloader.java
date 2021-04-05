@@ -118,7 +118,7 @@ public class DownloadManagerReleaseDownloader extends AbstractReleaseDownloader 
             AppCenterLog.debug(LOG_TAG, "Downloading is already in progress.");
             return;
         }
-        mRequestTask = AsyncTaskUtils.execute(LOG_TAG, new DownloadManagerRequestTask(this), mContext.getString(R.string.appcenter_distribute_downloading_version));
+        mRequestTask = AsyncTaskUtils.execute(LOG_TAG, new DownloadManagerRequestTask(this,  mContext.getString(R.string.appcenter_distribute_downloading_version)));
     }
 
     /**
