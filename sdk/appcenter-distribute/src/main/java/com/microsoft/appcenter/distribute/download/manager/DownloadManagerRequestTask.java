@@ -49,7 +49,7 @@ class DownloadManagerRequestTask extends AsyncTask<String, Void, Void> {
                 mDownloader.onDownloadStarted(downloadId, enqueueTime);
             }
             return null;
-        } catch (Exception e) {
+        } catch (Throwable e) {
 
             /*
              * In cases when Download Manager application is disabled,
