@@ -50,7 +50,7 @@ class DownloadManagerRequestTask extends AsyncTask<Void, Void, Void> {
             if (!isCancelled()) {
                 mDownloader.onDownloadStarted(downloadId, enqueueTime);
             }
-        } catch (IllegalStateException e) {
+        } catch (IllegalArgumentException e) {
 
             /*
              * In cases when Download Manager application is disabled,
