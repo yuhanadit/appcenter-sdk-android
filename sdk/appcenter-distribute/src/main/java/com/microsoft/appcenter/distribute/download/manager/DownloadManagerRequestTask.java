@@ -18,18 +18,16 @@ import static com.microsoft.appcenter.distribute.DistributeConstants.LOG_TAG;
 /**
  * The download manager API triggers strict mode exception in UI thread.
  */
-class DownloadManagerRequestTask extends AsyncTask<Void, Void, Void> {
+class DownloadManagerRequestTask extends AsyncTask<String, Void, Void> {
 
     private final DownloadManagerReleaseDownloader mDownloader;
-    private String mTitle;
 
-    DownloadManagerRequestTask(DownloadManagerReleaseDownloader downloader, String title) {
+    DownloadManagerRequestTask(DownloadManagerReleaseDownloader downloader) {
         mDownloader = downloader;
-        mTitle = title;
     }
 
     @Override
-    protected Void doInBackground(Void... params) {
+    protected Void doInBackground(String... params) {
         try {
             /* Download file. */
             ReleaseDetails releaseDetails = mDownloader.getReleaseDetails();
@@ -37,7 +35,7 @@ class DownloadManagerRequestTask extends AsyncTask<Void, Void, Void> {
             AppCenterLog.debug(LOG_TAG, "Start downloading new release from " + downloadUrl);
             DownloadManager downloadManager = mDownloader.getDownloadManager();
             DownloadManager.Request request = createRequest(downloadUrl);
-            request.setTitle(String.format(mTitle, releaseDetails.getShortVersion(), releaseDetails.getVersion()));
+            request.setTitle(String.format(params[0], releaseDetails.getShortVersion(), releaseDetails.getVersion()));
 
             /* Hide mandatory download to prevent canceling via notification cancel or download UI delete. */
             if (releaseDetails.isMandatoryUpdate()) {
