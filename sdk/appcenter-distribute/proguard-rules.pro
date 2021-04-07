@@ -3,7 +3,7 @@
 -dontskipnonpubliclibraryclasses
 -verbose
 
--keepclasseswithmembers class * extends com.microsoft.appcenter.distribute.download.manager.DownloadManagerRequestTask {
+-keepclasseswithmembers class * extends com.microsoft.appcenter.distribute.download.ReleaseDownloader {
     <fields>;
     <methods>;
 }
