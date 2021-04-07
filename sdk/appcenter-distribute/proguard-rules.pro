@@ -3,7 +3,4 @@
 -dontskipnonpubliclibraryclasses
 -verbose
 
--keepclasseswithmembers class * extends com.microsoft.appcenter.distribute.download.ReleaseDownloader {
-    <fields>;
-    <methods>;
-}
+-keepclasseswithmembers class * extends com.microsoft.appcenter.distribute.download.ReleaseDownloader$Listener { *; }
