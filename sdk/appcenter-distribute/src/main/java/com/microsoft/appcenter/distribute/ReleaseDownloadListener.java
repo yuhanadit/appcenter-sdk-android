@@ -85,10 +85,10 @@ class ReleaseDownloadListener implements ReleaseDownloader.Listener {
     @Override
     public boolean onComplete(@NonNull Uri localUri) {
         Intent intent = getInstallIntent(localUri);
-        if (intent.resolveActivity(mContext.getPackageManager()) == null) {
+        /*if (intent.resolveActivity(mContext.getPackageManager()) == null) {
             AppCenterLog.debug(LOG_TAG, "Cannot resolve install intent for " + localUri);
             return false;
-        }
+        }*/
         AppCenterLog.debug(LOG_TAG, String.format(Locale.ENGLISH, "Download %s (%d) update completed.",
                 mReleaseDetails.getShortVersion(), mReleaseDetails.getVersion()));
 
